@@ -4,5 +4,7 @@ spacy, nltk, pands, scikit-learn, matplotlib, seaborn, plotly, gensim, transform
 <b>cmd command</b> "pip install spacy nltk pandas scikit-learn matplotlib seaborn plotly gensim transformers"
 <h3>2. Data Collection</h3>
 Use web Scaping tool like "BeautifulSoup"
-<h3>2. Data Preprocessing</h3>
+<h3>3. Data Preprocessing</h3>
 Text Cleaning
+<h3>4. NER(Named Entity Recognition)</h3>
+Download : python -m spacy download en_core_web_sm
