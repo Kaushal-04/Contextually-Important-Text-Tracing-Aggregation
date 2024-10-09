@@ -14,3 +14,11 @@ Using TfidfVectorizer from scikit-learn.
 Aggregate the named entities extracted from the text and provide a count of how many times each entity occurs. This can help in understanding the prominence of certain entities within the given text, making it easier to identify key subjects or topics discussed.
 <h3>4. Visualization</h3>
 Visualize the frequency of contextually important entities extracted from the text. The bar chart provides a clear and immediate understanding of which entities are most prominent, making it easier to analyze the data visually.
+
+<h3>4. Example</h3>
+    texts = """
+    Apple Inc. is looking at buying U.K. startup for $1 billion. 
+    The deal would mark the company's first acquisition in Europe. 
+    Tim Cook, CEO of Apple, stated that this acquisition is part of the company's strategy to expand its presence in the region.
+    """
+![My Image](https://github.com/Kaushal-04/Contextually-Important-Text-Tracing-Aggregation/blob/main/ScreenShot/Plot.png)
