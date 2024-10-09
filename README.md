@@ -12,3 +12,5 @@ Download : python -m spacy download en_core_web_sm
 Using TfidfVectorizer from scikit-learn.
 <h3>4. Aggregation</h3>
 Aggregate the named entities extracted from the text and provide a count of how many times each entity occurs. This can help in understanding the prominence of certain entities within the given text, making it easier to identify key subjects or topics discussed.
+<h3>4. Visualization</h3>
+Visualize the frequency of contextually important entities extracted from the text. The bar chart provides a clear and immediate understanding of which entities are most prominent, making it easier to analyze the data visually.
