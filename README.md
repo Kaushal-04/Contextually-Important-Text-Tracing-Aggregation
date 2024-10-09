@@ -21,4 +21,5 @@ Visualize the frequency of contextually important entities extracted from the te
     The deal would mark the company's first acquisition in Europe. 
     Tim Cook, CEO of Apple, stated that this acquisition is part of the company's strategy to expand its presence in the region.
     """
+    
 ![My Image](https://github.com/Kaushal-04/Contextually-Important-Text-Tracing-Aggregation/blob/main/ScreenShot/Plot.png)
