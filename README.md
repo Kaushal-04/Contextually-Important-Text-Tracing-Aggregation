@@ -8,3 +8,5 @@ Use web Scaping tool like "BeautifulSoup"
 Text Cleaning
 <h3>4. NER(Named Entity Recognition)</h3>
 Download : python -m spacy download en_core_web_sm
+<h3>4. Vectorization</h3>
+Using TfidfVectorizer from scikit-learn.
