@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Summarizer</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"> <!-- Link to dashboard CSS -->
+</head>
+
+<body>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="logo">Summarizer</div>
+        <ul class="nav-links">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Features</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container">
+        <h1>Text Summarizer</h1>
+        <p class="subtitle">Summarize large texts quickly and easily.</p>
+
+        <!-- Input Area -->
+        <textarea id="inputText" placeholder="Enter text here..."></textarea>
+
+        <!-- Buttons -->
+        <div class="buttons">
+            <button onclick="summarizeText()" class="btn primary">Summarize</button>
+            <button onclick="clearText()" class="btn secondary">Clear Text</button>
+            <button onclick="resetSummary()" class="btn tertiary">Reset Summary</button>
+        </div>
+
+        <!-- Output Area -->
+        <div id="output" class="output" style="display: none;">
+            <h3>Summary:</h3>
+            <p id="summaryText"></p>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Text Summarizer. All rights reserved.</p>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Summarize the input text
+        function summarizeText() {
+            const inputText = document.getElementById('inputText').value;
+
+            // Check if the text is empty
+            if (!inputText.trim()) {
+                alert("Please enter some text to summarize.");
+                return;
+            }
+
+            // Dummy summarization logic (replace with actual algorithm)
+            const summary = inputText.split(' ').slice(0, 30).join(' ') + '...';
+
+            // Display the summary
+            document.getElementById('summaryText').textContent = summary;
+            document.getElementById('output').style.display = 'block';
+        }
+
+        // Clear the input text
+        function clearText() {
+            document.getElementById('inputText').value = '';
+        }
+
+        // Reset the summary output
+        function resetSummary() {
+            document.getElementById('summaryText').textContent = '';
+            document.getElementById('output').style.display = 'none';
+        }
+    </script>
+
+</body>
+
+</html>
