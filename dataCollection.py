@@ -14,4 +14,5 @@ def dataCollect():
     The deal would mark the company's first acquisition in Europe. 
     Tim Cook, CEO of Apple, stated that this acquisition is part of the company's strategy to expand its presence in the region.
     """
+    
     return texts
