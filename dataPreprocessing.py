@@ -1,10 +1,11 @@
+import nltk
 from nltk import word_tokenize
 from nltk.corpus import stopwords
 import re
 
 # Uncomment this line to download stop words if not already downloaded
 #nltk.download('stopwords')
-#nltk.download('punkt_tab')
+#nltk.download('punkt')
 
 stop_words = set(stopwords.words('english'))
 
