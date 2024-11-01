@@ -2,26 +2,38 @@ import nltk
 from nltk import word_tokenize
 from nltk.corpus import stopwords
 import re
-from dataCollection import dataCollect
 
-# Uncomment this line to download stop words if not already downloaded
+# Uncomment these lines to download stop words if not already downloaded
 # nltk.download('stopwords')
 # nltk.download('punkt')
 
 stop_words = set(stopwords.words('english'))
 
 def cleanText(texts):
-    # Remove URLs, numbers, and punctuation
-    texts = re.sub(r'http\S+|www\S+|https\S+', '', texts, flags=re.MULTILINE)
-    texts = re.sub(r'\d+', '', texts)
-    texts = re.sub(r'[^\w\s]', '', texts)  # Remove punctuation
-    texts = re.sub(r'\s+', ' ', texts).strip()
-    texts = texts.lower()
+    # Split the text into paragraphs using a single newline
+    paragraphs = texts.strip().split('\n\n')
+    if len(paragraphs) < 2:
+        paragraphs = texts.strip().split('\n')  # Fallback to single newline if needed
+
+    cleaned_paragraphs = []
     
-    # Tokenize and remove stop words
-    tokens = word_tokenize(texts)
-    tokens = [word for word in tokens if word not in stop_words]
+    for paragraph in paragraphs:
+        # Remove URLs, numbers, and punctuation
+        paragraph = re.sub(r'http\S+|www\S+|https\S+', '', paragraph, flags=re.MULTILINE)
+        paragraph = re.sub(r'\d+', '', paragraph)
+        paragraph = re.sub(r'[^\w\s]', '', paragraph)  # Remove punctuation
+        paragraph = re.sub(r'\s+', ' ', paragraph).strip()
+        paragraph = paragraph.lower()
+        
+        # Tokenize and remove stop words
+        tokens = word_tokenize(paragraph)
+        tokens = [word for word in tokens if word not in stop_words]
+        
+        # Join tokens back into a single sentence
+        cleaned_paragraph = ' '.join(tokens)
+        cleaned_paragraphs.append(cleaned_paragraph)
     
-    # Join tokens back into a single sentence
-    cleaned_sentence = ' '.join(tokens)
-    return cleaned_sentence
+    # Store cleaned paragraphs as para1 and para2
+    para1 = cleaned_paragraphs[0] if len(cleaned_paragraphs) > 0 else ''
+    para2 = cleaned_paragraphs[1] if len(cleaned_paragraphs) > 1 else ''
+    return para1, para2

@@ -1,15 +1,6 @@
 def dataCollect():
-    texts = """Ratan Tata was born in Bombay (now Mumbai), during the British Raj, into a Parsi Zoroastrian family, 
-    on 28 December 1937.He was the son of Naval Tata (who was born in Surat and later adopted into the Tata family), 
-    and Soonoo Tata (the niece of Tata group founder Jamsetji Tata). Tata's biological grandfather, Hormusji Tata was a member 
-    of the Tata family by blood. In 1948, when Tata was 10, his parents separated, and he was subsequently raised and adopted by 
-    Navajbai Tata, his grandmother and widow of Ratanji Tata.He had a younger brother Jimmy Tata and a half-brother, Noel 
-    Tata, from Naval Tata's second marriage to his stepmother Simone Tata.
-    
-    Tata studied at the Campion School, Mumbai until 8th grade. He then continued his studies at the Cathedral and John Connon School 
-    in Mumbai, the Bishop Cotton School in Shimla, and the Riverdale Country School in New York City, from which he graduated in 1955.
-    After high school, Tata enrolled in Cornell University, from which he graduated with a bachelor's degree in 
-    architecture in 1962. While at Cornell, Tata became a member of the Alpha Sigma Phi Fraternity. In 2008, Tata gifted 
-    Cornell $50 million, becoming the largest international donor in the university's history.
+    texts = """It is an honour to have this great human in our era. This person has a place in every Indian’s heart and in their homes. We are talking about none other than Ratan Naval Tata. He is a great Indian industrialist, an amazing philanthropist and the former Chairman Emeritus of the Tata Sons and Tata Groups. He held the title of the Chairman for the Tata Group of companies from 1990 to 2012. He was also appointed as an interim Chairman to serve from October of 2016 to February of 2017. As of now, Ratan Tata continues to head the charitable trusts. This great figure was born on December 28, 1937, in Mumbai. As per the Ratan Tata history this is an important part where it all began from the Tata Group, which was founded as a private trading firm in the year 1868 by an entrepreneur and philanthropist, Jamsetji Nusserwanji Tata. In the year 1902, it is recorded that the Tata group also incorporated the Indian Hotels Company that was to commission the Taj Mahal Palace & Tower.  This was India’s very first luxury hotel ever, which opened the very next year.
+
+    Ratan Tata began his journey at the Tata Group as an apprentice. It was on the shop floor of the Jamshedpur plant. He built his bright career from the ground upwards. He got his expertise and experience by working in different areas across many companies that were within the Tata Group. He eventually became the director of National Radio and Electronics Company Limited (NELCO) in 1971.The Ratan Tata history also talks about when he started his glorious expertise when he joined Tata in 1961, where he worked on the shop floor of Tata Steel. He later succeeded J. R. D. Jehangir Ratanji Dadabhoy Tata (JRD) who was an aviator industrialist. The saying is true that every diamond has a rough past, and our beloved Ratan was no exception. As a little young boy, Tata had a very disturbed childhood. His parents had split, and Ratan was pretty much raised by his grandmother, Lady Navajbai. However, he grew up in the luxurious lap of the Tata Palace. From a very young age, he had a special fascination for the United States of America. The scion went to Cornell University to study architecture and structural engineering.
     """
     return texts
