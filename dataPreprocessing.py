@@ -47,16 +47,23 @@ def process_text(input_text):
                 if processed_sentence:  # Only add non-empty processed sentences
                     para2.append(processed_sentence)
 
+    # Ensure both paragraphs have the same number of sentences
+    max_len = max(len(para1), len(para2))
+    while len(para1) < max_len:
+        para1.append('')  # Add empty string if para1 is shorter
+    while len(para2) < max_len:
+        para2.append('')  # Add empty string if para2 is shorter
+
     return para1, para2
 
 
 para1, para2 = process_text(dataCollect())
 
-# Print the results
-print("Paragraph 1 Processed Sentences:")
-for sentence in para1:
-    print(sentence)
+# # Print the results
+# print("Paragraph 1 Processed Sentences:")
+# for sentence in para1:
+#     print(sentence)
 
-print("\nParagraph 2 Processed Sentences:")
-for sentence in para2:
-    print(sentence)
+# print("\nParagraph 2 Processed Sentences:")
+# for sentence in para2:
+#     print(sentence)

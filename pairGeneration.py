@@ -43,6 +43,6 @@ def calculate_cosine_similarity(text1, text2_list):
 
 
 pairs = generate_pairs(match_matrix, para1, para2)
-print("Generated Sentence Pairs:")
-for p1, p2 in pairs:
-    print(f"({p1}) with ({p2})")
+# print("Generated Sentence Pairs:")
+# for p1, p2 in pairs:
+#     print(f"({p1}) with ({p2})")

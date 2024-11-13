@@ -18,7 +18,7 @@ def get_nouns(sentence):
 
 def create_match_matrix(para1, para2):
     """Create a match matrix comparing nouns in sentences of two paragraphs."""
-    size = len(para1)
+    size = min(len(para1), len(para2))  # Use the smaller size of the two
     match_matrix = [[0] * size for _ in range(size)]
     
     # Get nouns for each sentence in both paragraphs
@@ -34,9 +34,10 @@ def create_match_matrix(para1, para2):
 
     return match_matrix
 
+
 match_matrix = create_match_matrix(para1, para2)
 
-# Print the match matrix
-print("Match Matrix:")
-for row in match_matrix:
-    print(row)
+# # Print the match matrix
+# print("Match Matrix:")
+# for row in match_matrix:
+#     print(row)

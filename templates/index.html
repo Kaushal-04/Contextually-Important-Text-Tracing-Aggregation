@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EssenceExtract</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"> <!-- Link to dashboard CSS -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> <!-- jQuery for AJAX -->
 </head>
 
 <body>
@@ -27,19 +28,21 @@
         <p class="subtitle">Discover the Significance in Every Word</p>
 
         <!-- Input Area -->
-        <textarea id="inputText" placeholder="Enter text here..."></textarea>
+        <form id="textForm">
+            <textarea name="text_data" id="inputText" placeholder="Enter text here..." required></textarea>
 
-        <!-- Buttons -->
-        <div class="buttons">
-            <button onclick="summarizeText()" class="btn primary">Summarize</button>
-            <button onclick="clearText()" class="btn secondary">Clear Text</button>
-            <button onclick="resetSummary()" class="btn tertiary">Reset Summary</button>
-        </div>
+            <!-- Buttons -->
+            <div class="buttons">
+                <button type="submit" class="btn primary">Summarize</button>
+                <button type="button" onclick="clearText()" class="btn secondary">Clear Text</button>
+                <button type="button" onclick="resetSummary()" class="btn tertiary">Reset Summary</button>
+            </div>
+        </form>
 
         <!-- Output Area -->
         <div id="output" class="output" style="display: none;">
-            <h3>Summary:</h3>
-            <p id="summaryText"></p>
+            <h3>Generated Sentence Pairs:</h3>
+            <ul id="pairList"></ul>
         </div>
     </div>
 
@@ -48,35 +51,45 @@
         <p>&copy; 2024 EssenceExtract. All rights reserved.</p>
     </footer>
 
-    <!-- JavaScript -->
     <script>
-        // Summarize the input text
-        function summarizeText() {
-            const inputText = document.getElementById('inputText').value;
+        // Handle form submission via AJAX
+        $("#textForm").submit(function (event) {
+            event.preventDefault(); // Prevent page reload on form submit
 
-            // Check if the text is empty
-            if (!inputText.trim()) {
-                alert("Please enter some text to summarize.");
-                return;
-            }
+            const inputText = $("#inputText").val(); // Get input text
 
-            // Dummy summarization logic (replace with actual algorithm)
-            const summary = inputText.split(' ').slice(0, 30).join(' ') + '...';
+            // Make AJAX request to the backend
+            $.ajax({
+                url: "/process", // Flask route that handles the text processing
+                type: "POST",
+                data: { text_data: inputText },
+                success: function (response) {
+                    // Clear the previous output
+                    $("#pairList").empty();
+                    $("#output").show(); // Show the output section
 
-            // Display the summary
-            document.getElementById('summaryText').textContent = summary;
-            document.getElementById('output').style.display = 'block';
-        }
+                    // Loop through the returned sentence pairs and display them
+                    response.pairs.forEach(function (pair) {
+                        $("#pairList").append(
+                            `<li><strong>Sentence 1:</strong> ${pair[0]}<br><strong>Sentence 2:</strong> ${pair[1]}</li>`
+                        );
+                    });
+                },
+                error: function () {
+                    alert("An error occurred while processing the text.");
+                }
+            });
+        });
 
         // Clear the input text
         function clearText() {
-            document.getElementById('inputText').value = '';
+            $("#inputText").val('');
         }
 
         // Reset the summary output
         function resetSummary() {
-            document.getElementById('summaryText').textContent = '';
-            document.getElementById('output').style.display = 'none';
+            $("#pairList").empty();
+            $("#output").hide();
         }
     </script>
 
