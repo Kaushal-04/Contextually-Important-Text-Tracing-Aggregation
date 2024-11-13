@@ -3,7 +3,6 @@ import re
 import nltk
 from nltk.stem import WordNetLemmatizer
 from nltk.tokenize import sent_tokenize, word_tokenize
-from dataCollection import dataCollect
 
 # Download required NLTK resources
 #nltk.download('punkt')
@@ -55,15 +54,3 @@ def process_text(input_text):
         para2.append('')  # Add empty string if para2 is shorter
 
     return para1, para2
-
-
-para1, para2 = process_text(dataCollect())
-
-# # Print the results
-# print("Paragraph 1 Processed Sentences:")
-# for sentence in para1:
-#     print(sentence)
-
-# print("\nParagraph 2 Processed Sentences:")
-# for sentence in para2:
-#     print(sentence)

@@ -17,19 +17,15 @@ def index():
 # Route for processing the text and showing results (AJAX)
 @app.route('/process', methods=['POST'])
 def process_text_input():
-    # Collect text data from the form input
+
     input_text = request.form.get('text_data', '')
 
-    # Step 1: Process the input text to generate two paragraphs (para1, para2)
     para1, para2 = process_text(input_text)
 
-    # Step 2: Create the match matrix based on noun overlap between sentences
     match_matrix = create_match_matrix(para1, para2)
 
-    # Step 3: Generate the sentence pairs
     pairs = generate_pairs(match_matrix, para1, para2)
 
-    # Step 4: Return the pairs as a JSON response for AJAX to handle
     return jsonify(pairs=pairs)
 
 if __name__ == '__main__':

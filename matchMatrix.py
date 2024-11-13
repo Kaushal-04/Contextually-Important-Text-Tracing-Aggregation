@@ -1,4 +1,3 @@
-from dataPreprocessing import para1 , para2
 import nltk
 from nltk.tokenize import word_tokenize
 from nltk import pos_tag
@@ -33,11 +32,3 @@ def create_match_matrix(para1, para2):
             match_matrix[i][j] = len(common_nouns)
 
     return match_matrix
-
-
-match_matrix = create_match_matrix(para1, para2)
-
-# # Print the match matrix
-# print("Match Matrix:")
-# for row in match_matrix:
-#     print(row)

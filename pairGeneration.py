@@ -1,5 +1,3 @@
-from matchMatrix import match_matrix
-from dataPreprocessing import para1, para2
 import numpy as np
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
@@ -40,9 +38,3 @@ def calculate_cosine_similarity(text1, text2_list):
     tfidf_matrix = vectorizer.fit_transform(documents)
     cosine_similarities = cosine_similarity(tfidf_matrix[0:1], tfidf_matrix[1:]).flatten()
     return cosine_similarities
-
-
-pairs = generate_pairs(match_matrix, para1, para2)
-# print("Generated Sentence Pairs:")
-# for p1, p2 in pairs:
-#     print(f"({p1}) with ({p2})")
