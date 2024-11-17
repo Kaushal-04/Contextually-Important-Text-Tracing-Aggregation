@@ -41,7 +41,7 @@
 
         <!-- Output Area -->
         <div id="output" class="output" style="display: none;">
-            <h3>Generated Sentence Pairs:</h3>
+            <h3>Summarized Sentence Pairs:</h3>
             <ul id="pairList"></ul>
         </div>
     </div>
@@ -68,10 +68,10 @@
                     $("#pairList").empty();
                     $("#output").show(); // Show the output section
 
-                    // Loop through the returned sentence pairs and display them
-                    response.pairs.forEach(function (pair) {
+                    // Loop through the returned summaries and display them
+                    response.pairs.forEach(function (summary) {
                         $("#pairList").append(
-                            `<li><strong>Sentence 1:</strong> ${pair[0]}<br><strong>Sentence 2:</strong> ${pair[1]}</li>`
+                            `<li><strong>Summary:</strong> ${summary}</li>`
                         );
                     });
                 },

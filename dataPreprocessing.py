@@ -12,20 +12,20 @@ from nltk.tokenize import sent_tokenize, word_tokenize
 lemmatizer = WordNetLemmatizer()
 
 def clean_text(text):
-    # Remove URLs
+
     text = re.sub(r'http\S+|www\S+|https\S+', '', text, flags=re.MULTILINE)
-    # Remove punctuation
+
     text = text.translate(str.maketrans('', '', string.punctuation))
-    # Remove extra whitespace
+
     text = re.sub(r'\s+', ' ', text).strip()
     return text
 
 def process_sentence(sentence):
-    # Clean the sentence
+
     cleaned = clean_text(sentence)
-    # Tokenize the cleaned sentence
+
     tokens = word_tokenize(cleaned)
-    # Apply lemmatization (avoid stemming for better word forms)
+
     lemmatized = [lemmatizer.lemmatize(token.lower()) for token in tokens]
     return ' '.join(lemmatized)
 
@@ -35,7 +35,7 @@ def process_text(input_text):
     para1, para2 = [], []
 
     for i, paragraph in enumerate(paragraphs):
-        # Split each paragraph into sentences
+
         sentences = sent_tokenize(paragraph)
         for sentence in sentences:
             processed_sentence = process_sentence(sentence)

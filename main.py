@@ -2,16 +2,9 @@ from flask import Flask, render_template, request, jsonify
 from dataPreprocessing import process_text
 from matchMatrix import create_match_matrix
 from pairGeneration import generate_pairs
-import openai
-import os
+from sample import summarize_paragraphs
 
 app = Flask(__name__)
-
-api_key = os.getenv("OPENAI_API_KEY")
-if not api_key:
-    raise ValueError("API Key is not set. Please set the OPENAI_API_KEY environment variable.")
-
-openai.api_key = api_key
 
 # Route for the dashboard (homepage)
 @app.route('/')
@@ -33,8 +26,10 @@ def process_text_input():
     match_matrix = create_match_matrix(para1, para2)
 
     pairs = generate_pairs(match_matrix, para1, para2)
+    
+    summarized_pairs = summarize_paragraphs(pairs)
 
-    return jsonify(pairs=pairs)
+    return jsonify(pairs=summarized_pairs)
 
 if __name__ == '__main__':
     app.run(debug=True)
