@@ -15,16 +15,16 @@
     <nav class="navbar">
         <div class="logo">EssenceExtract</div>
         <ul class="nav-links">
-            <li><a href="/">Home</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="javascript:void(0)" onclick="toggleContact()">Contact</a></li>
+            <li><a href="javascript:void(0)" onclick="showSection('home')">Home</a></li>
+            <li><a href="javascript:void(0)" onclick="showSection('about')">About</a></li>
+            <li><a href="javascript:void(0)" onclick="showSection('contact')">Contact</a></li>
         </ul>
     </nav>
 
     <!-- Main Content -->
     <div class="container">
-        <!-- Main content section -->
-        <div id="mainContent">
+        <!-- Home Section -->
+        <div id="home" class="section">
             <h1>EssenceExtract</h1>
             <p class="subtitle">Discover the Significance in Every Word</p>
 
@@ -47,8 +47,14 @@
             </div>
         </div>
 
+        <!-- About Section -->
+        <div id="about" class="section" style="display: none;">
+            <h1>About EssenceExtract</h1>
+            <p>The "Contextually Important Text Tracing and Aggregation" project provides an advanced solution for efficiently analyzing and summarizing large volumes of text. By utilizing sophisticated natural language processing (NLP) techniques, the system identifies key themes, sentiment, and context within text data. It enables users to input documents or raw text, and through processes like tokenization, contextual analysis, and aggregation, the system generates concise, relevant summaries. The ability to organize the output based on topics or sentiment adds significant value, making it adaptable for various applications in research, business analysis, content summarization, and more. The project enhances productivity by providing a quick overview of vast amounts of unstructured data. While challenges such as data quality and model accuracy remain, the system’s potential in improving decision-making processes is clear. As the technology advances, it could play a vital role in industries dealing with large-scale text data, from academia to market research.</p>
+        </div>
+
         <!-- Contact Information Section -->
-        <div id="contactInfo" class="contact-info" style="display: none;">
+        <div id="contact" class="section" style="display: none;">
             <h3>Contact Our Team</h3>
             <div class="team-members">
                 <div class="team-member">
@@ -76,6 +82,15 @@
     </footer>
 
     <script>
+        // Function to show a specific section and hide others
+        function showSection(section) {
+            // Hide all sections
+            $(".section").hide();
+
+            // Show the selected section
+            $("#" + section).show();
+        }
+
         // Handle form submission via AJAX
         $("#textForm").submit(function (event) {
             event.preventDefault(); // Prevent page reload on form submit
@@ -116,19 +131,10 @@
             $("#output").hide();
         }
 
-        // Toggle Contact Information on and off
-        function toggleContact() {
-            const isContactVisible = $("#contactInfo").is(":visible");
-
-            // Show or hide contact info and main content
-            if (isContactVisible) {
-                $("#contactInfo").hide(); // Hide contact info
-                $("#mainContent").show(); // Show main content
-            } else {
-                $("#contactInfo").show(); // Show contact info
-                $("#mainContent").hide(); // Hide main content
-            }
-        }
+        // Show the home section initially
+        $(document).ready(function() {
+            showSection('home');
+        });
     </script>
 
 </body>
