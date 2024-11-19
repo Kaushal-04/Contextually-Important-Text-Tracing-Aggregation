@@ -15,34 +15,58 @@
     <nav class="navbar">
         <div class="logo">EssenceExtract</div>
         <ul class="nav-links">
-            <li><a href="#">Home</a></li>
+            <li><a href="/">Home</a></li>
             <li><a href="#">About</a></li>
-            <li><a href="#">Features</a></li>
-            <li><a href="#">Contact</a></li>
+            <li><a href="javascript:void(0)" onclick="toggleContact()">Contact</a></li>
         </ul>
     </nav>
 
     <!-- Main Content -->
     <div class="container">
-        <h1>EssenceExtract</h1>
-        <p class="subtitle">Discover the Significance in Every Word</p>
+        <!-- Main content section -->
+        <div id="mainContent">
+            <h1>EssenceExtract</h1>
+            <p class="subtitle">Discover the Significance in Every Word</p>
 
-        <!-- Input Area -->
-        <form id="textForm">
-            <textarea name="text_data" id="inputText" placeholder="Enter text here..." required></textarea>
+            <!-- Input Area -->
+            <form id="textForm">
+                <textarea name="text_data" id="inputText" placeholder="Enter text here..." required></textarea>
 
-            <!-- Buttons -->
-            <div class="buttons">
-                <button type="submit" class="btn primary">Summarize</button>
-                <button type="button" onclick="clearText()" class="btn secondary">Clear Text</button>
-                <button type="button" onclick="resetSummary()" class="btn tertiary">Reset Summary</button>
+                <!-- Buttons -->
+                <div class="buttons">
+                    <button type="submit" class="btn primary">Summarize</button>
+                    <button type="button" onclick="clearText()" class="btn secondary">Clear Text</button>
+                    <button type="button" onclick="resetSummary()" class="btn tertiary">Reset Summary</button>
+                </div>
+            </form>
+
+            <!-- Output Area -->
+            <div id="output" class="output" style="display: none;">
+                <h3>Summarized Sentence Pairs:</h3>
+                <ul id="pairList"></ul>
             </div>
-        </form>
+        </div>
 
-        <!-- Output Area -->
-        <div id="output" class="output" style="display: none;">
-            <h3>Summarized Sentence Pairs:</h3>
-            <ul id="pairList"></ul>
+        <!-- Contact Information Section -->
+        <div id="contactInfo" class="contact-info" style="display: none;">
+            <h3>Contact Our Team</h3>
+            <div class="team-members">
+                <div class="team-member">
+                    <img src="{{ url_for('static', filename='him.jpg') }}" alt="Himanshi Dayal">
+                    <p>Himanshi Dayal</p>
+                    <p>Email: <a href="mailto:221b178@gmail.com">221b178@gmail.com</a></p>
+                </div>
+                <div class="team-member">
+                    <img src="{{ url_for('static', filename='kk.jpg') }}" alt="Kaushal Kumar">
+                    <p>Kaushal Kumar</p>
+                    <p>Email: <a href="mailto:221b201@juetguna.in">221b201@juetguna.in</a></p>
+                </div>
+                <div class="team-member">
+                    <img src="{{ url_for('static', filename='ver.jpg') }}" alt="VARSHAVASUNDHARA DEEPAK MAHALIK ">
+                    <p>VARSHAVASUNDHARA DEEPAK MAHALIK</p>
+                    <p>Email: <a href="mailto:221b433@juetguna.in">221b433@juetguna.in</a></p>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -90,6 +114,20 @@
         function resetSummary() {
             $("#pairList").empty();
             $("#output").hide();
+        }
+
+        // Toggle Contact Information on and off
+        function toggleContact() {
+            const isContactVisible = $("#contactInfo").is(":visible");
+
+            // Show or hide contact info and main content
+            if (isContactVisible) {
+                $("#contactInfo").hide(); // Hide contact info
+                $("#mainContent").show(); // Show main content
+            } else {
+                $("#contactInfo").show(); // Show contact info
+                $("#mainContent").hide(); // Hide main content
+            }
         }
     </script>
 

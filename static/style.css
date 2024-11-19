@@ -136,3 +136,76 @@ footer {
     font-size: 14px;
     color: #666;
 }
+
+
+
+
+/* Flexbox to arrange the team members horizontally */
+.team-members {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px; /* Space between team members */
+    flex-wrap: wrap; /* Wraps the items if there is not enough space */
+}
+
+.team-member {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 30%; /* Adjust this width based on the number of team members and desired spacing */
+    text-align: center;
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 8px;
+}
+
+.team-member img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+.team-member p {
+    margin: 5px 0;
+}
+
+.team-member a {
+    color: #007BFF;
+    text-decoration: none;
+}
+
+.team-member a:hover {
+    text-decoration: underline;
+}
+
+/* Container for content */
+.container {
+    padding: 20px;
+}
+
+/* Style for buttons */
+.buttons {
+    margin-top: 10px;
+}
+
+.btn {
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+}
+
+.primary {
+    background-color: #007bff;
+    color: white;
+}
+
+.secondary {
+    background-color: #6c757d;
+    color: white;
+}
+
+.tertiary {
+    background-color: #28a745;
+    color: white;
+}
