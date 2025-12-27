@@ -1,8 +1,8 @@
 from flask import Flask, render_template, request, jsonify
-from dataPreprocessing import process_text
-from matchMatrix import create_match_matrix
-from pairGeneration import generate_pairs
-from sample import summarize_paragraphs
+from core.dataPreprocessing import process_text
+from core.matchMatrix import create_match_matrix
+from core.pairGeneration import generate_pairs
+from core.sample import summarize_paragraphs
 
 app = Flask(__name__)
 
